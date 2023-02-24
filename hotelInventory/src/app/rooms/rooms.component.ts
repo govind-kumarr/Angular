@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnChanges,
+  OnInit,
+} from '@angular/core';
 import { data, Room, RoomList } from './rooms';
 
 @Component({
   selector: 'app-rooms',
   templateUrl: './rooms.component.html',
   styleUrls: ['./rooms.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RoomsComponent implements OnInit {
   hotelName = 'Mariot';
   numberOfRooms = 100;
   hideRooms = false;
+
+  title = 'I am your parent';
 
   roomsList: RoomList[] = [];
 
@@ -29,6 +37,10 @@ export class RoomsComponent implements OnInit {
 
   toggle() {
     this.hideRooms = !this.hideRooms;
+    this.title =
+      this.title === 'I am not your parent'
+        ? 'I am your parent'
+        : 'I am not your parent';
   }
 
   addRoom() {

@@ -4,5 +4,5 @@
   <div [innerText]="numberOfRooms"></div>
 </div>
 <button (click)="addRoom()" class="p-2 bg-red-700 text-cyan-100">Add Room</button>
-<app-rooms-list [roomList]="roomsList" (roomSelected)="selectRoom($event)"></app-rooms-list>
+<app-rooms-list [roomList]="roomsList" (roomSelected)="selectRoom($event)" [title]="title"></app-rooms-list>
 <button (click)="toggle()">Toggle</button>
