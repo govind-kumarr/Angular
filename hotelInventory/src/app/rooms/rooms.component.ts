@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Room, RoomList } from './rooms';
+import { data, Room, RoomList } from './rooms';
 
 @Component({
   selector: 'app-rooms',
@@ -11,35 +11,7 @@ export class RoomsComponent implements OnInit {
   numberOfRooms = 100;
   hideRooms = false;
 
-  roomsList: RoomList[] = [
-    {
-      roomType: 'Deluxe Room',
-      aminities: 'Air Conditioner, Free Wifi, TV, Playground, Barbique',
-      price: 800,
-      photos:
-        'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-      checkIn: new Date('11-Nov-2021'),
-      checkOut: new Date('12-Nov-2021'),
-    },
-    {
-      roomType: 'Deluxe Room',
-      aminities: 'Air Conditioner, Free Wifi, TV, Playground, Barbique',
-      price: 800,
-      photos:
-        'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-      checkIn: new Date('11-Nov-2021'),
-      checkOut: new Date('12-Nov-2021'),
-    },
-    {
-      roomType: 'Deluxe Room',
-      aminities: 'Air Conditioner, Free Wifi, TV, Playground, Barbique',
-      price: 800,
-      photos:
-        'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-      checkIn: new Date('11-Nov-2021'),
-      checkOut: new Date('12-Nov-2021'),
-    },
-  ];
+  roomsList: RoomList[] = [];
 
   rooms: Room = {
     totalRooms: 150,
@@ -47,9 +19,34 @@ export class RoomsComponent implements OnInit {
     bookedRooms: 50,
   };
 
+  selectedRoom!: RoomList;
+
   constructor() {}
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+    this.roomsList = data;
+  }
+
   toggle() {
     this.hideRooms = !this.hideRooms;
+  }
+
+  addRoom() {
+    const room: RoomList = {
+      roomType: 'Luxury',
+      aminities: 'AC Fridge Kitchen parking',
+      price: 1399,
+      photos:
+        'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+      checkIn: new Date('24-Feb-2023'),
+      checkOut: new Date('24-Feb-2023'),
+      rating: 4.12,
+    };
+    this.roomsList = [...this.roomsList, room];
+  }
+
+  selectRoom(room: RoomList) {
+    this.selectedRoom = room;
+    console.log(this.selectedRoom);
   }
 }

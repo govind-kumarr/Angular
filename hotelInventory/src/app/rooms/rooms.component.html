@@ -3,31 +3,6 @@
 <div [hidden]="hideRooms">
   <div [innerText]="numberOfRooms"></div>
 </div>
-
-<div *ngIf="rooms.availabelRooms > 0">
-  Rooms List:
-  <table>
-    <thead>
-      <tr>
-        <th>Room Number</th>
-        <th>Room Type</th>
-        <th>Room Price</th>
-        <th>Room Aminities</th>
-        <th>Check In</th>
-        <th>Check Out</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let room of roomsList; let i = index; let e = even; let o=odd;">
-        <td>index is {{i}}</td>
-        <td>{{e ? "Even": "Odd"}}</td>
-        <td>{{room.roomType}}</td>
-        <td>{{room.aminities}}</td>
-        <td><img src={{room.photos}}></td>
-        <td>{{room.checkIn}}</td>
-        <td>{{room.checkOut}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<button (click)="addRoom()" class="p-2 bg-red-700 text-cyan-100">Add Room</button>
+<app-rooms-list [roomList]="roomsList" (roomSelected)="selectRoom($event)"></app-rooms-list>
 <button (click)="toggle()">Toggle</button>

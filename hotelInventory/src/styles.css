@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  --first-color: #FFC8C8;
+  --second-color: #FF9999;
+  --third-color: #444F5A;
+  --fourth-color: #3E4149;
+}

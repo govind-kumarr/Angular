@@ -1,1 +1,13 @@
+<h1 class="text-3xl font-bold underline">
+  Hello world!
+</h1>
+<div [ngSwitch]="role">
+  <h1 *ngSwitchCase="'User'">
+    Welcome User
+  </h1>
+  <h1 *ngSwitchCase="'Admin'">
+    Welcome Admin
+  </h1>
+  <h1 *ngSwitchDefault="">You are not authorized to access</h1>
+</div>
 <app-rooms></app-rooms>

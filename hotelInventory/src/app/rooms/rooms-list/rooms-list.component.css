@@ -1,0 +1,7 @@
+.even {
+  background-color: var(--first-color);
+}
+
+.odd {
+  background-color: var(--second-color);
+}

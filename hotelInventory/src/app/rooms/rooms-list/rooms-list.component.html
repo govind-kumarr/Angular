@@ -1,0 +1,32 @@
+<p>rooms-list works!</p>
+<div *ngIf="roomList.length > 0">
+  Rooms List:
+  <table>
+    <thead>
+      <tr>
+        <th>Room Number</th>
+        <th>Room Type</th>
+        <th>Room Price</th>
+        <th>Room Aminities</th>
+        <th>Check In</th>
+        <th>Check Out</th>
+        <th>Rating</th>
+        <th>Select Room</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr [ngClass]="e ? 'even' : 'odd'" *ngFor="let room of roomList; let i = index; let e = even; let o=odd;">
+        <td>{{i+1}}</td>
+        <td>{{room.roomType}}</td>
+        <td>{{room.price | currency: 'INR'}}</td>
+        <td>{{room.aminities}}</td>
+        <td>{{room.checkIn | date}}</td>
+        <td>{{room.checkOut | date}}</td>
+        <td>{{room.rating | number : '1.0-0' }}</td>
+        <td><button class="rounded-lg p-4 bg-indigo-500" (click)="selectRoom(room)">
+            select
+          </button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
